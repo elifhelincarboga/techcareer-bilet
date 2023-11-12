@@ -1,7 +1,7 @@
 const express = require('express')
-const authController = require('../controllers/auth')
+const userController = require('../controllers/user')
 const router = express.Router({ mergeParams: true })
 
-router.post('/login', authController.login)
+router.post('/register', userController.register)
 
 module.exports = router
