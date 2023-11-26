@@ -2,8 +2,16 @@ const Event = require('../models/event')
 
 exports.getAllEvents = async (req, res) => {
   try {
-    const events = await Event.find()
-    res.status(200).json(events)
+    const events = await Event.find().populate('category').populate('location')
+    const eventsMapped = events.map(item => {
+      return {
+        id: item._id,
+        title: item.title,
+        date: item.date,
+        locationName: item.location.name,
+      }
+    })
+    res.status(200).json(eventsMapped)
   } catch (error) {
     res.status(500).json({ error: 'Internal Server Error'})
   }
@@ -12,7 +20,7 @@ exports.getAllEvents = async (req, res) => {
 exports.getEventById = async (req, res) => {
   const eventId = req.params.id
   try {
-    const event = await Event.findById(eventId)
+    const event = await Event.findById(eventId).populate('category').populate('location')
     if (!event) {
       return res.status(404).json({ error: 'Etkinlik bulunamadı' })
     }
