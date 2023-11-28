@@ -3,7 +3,13 @@ const Category = require('../models/category')
 exports.getAllCategories = async (req, res) => {
   try {
     const categories = await Category.find()
-    res.status(200).json(categories)
+    const categoriesMapped = categories.map(item => {
+      return {
+        id: item._id,
+        name: item.name
+      }
+    })
+    res.status(200).json(categoriesMapped)
   } catch (error) {
     res.status(500).json({ error: 'Internal Server Error'})
   }

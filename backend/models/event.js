@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const Yup = require('yup');
 
 const eventSchema = new mongoose.Schema({
   title: { type: String, required: true },
@@ -10,7 +11,7 @@ const eventSchema = new mongoose.Schema({
   },
   images: [{ url: String }],
   date: { type: Date, required: true },
-  city: { type: String, required: true },
+  cityId: { type: Number, required: true },
   location: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Location',
@@ -23,8 +24,17 @@ const eventSchema = new mongoose.Schema({
   organizer: [{ type: String, required: true }]
 })
 
+const eventFilterSchema = Yup.object().shape({
+  startDate: Yup.date().nullable(),
+  endDate: Yup.date()
+    .nullable()
+    .min(Yup.ref('startDate'), 'End date must be after or equal to start date'),
+  category: Yup.string().nullable(),
+  city: Yup.string().nullable(),
+});
+
 eventSchema.index({ 'location.coordinates': '2dsphere' })
 
 const Event = mongoose.model('Event', eventSchema)
 
-module.exports = Event
+module.exports = { Event, eventFilterSchema }

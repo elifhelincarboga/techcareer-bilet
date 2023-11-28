@@ -1,6 +1,11 @@
+import Filter from '../components/Filter'
+
 function Home() {
   return (
-    <div>Home</div>
+    <>
+      <div>Home</div>
+      <Filter></Filter>
+    </>
   )
 }
 

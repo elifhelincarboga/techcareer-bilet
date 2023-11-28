@@ -1,5 +1,6 @@
 import ReactDOM from 'react-dom/client'
-import './index.css'
+// Import our custom CSS
+import './assets/scss/styles.scss'
 // router
 import { RouterProvider } from "react-router-dom";
 import router from "./router/"
