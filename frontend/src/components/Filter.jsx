@@ -26,12 +26,14 @@ function Filter() {
     {
       type: 'datePicker',
       model: 'startDate',
-      label: 'start date'
+      label: 'start date',
+      default: new Date().toISOString()
     },
     {
       type: 'datePicker',
       model: 'endDate',
-      label: 'end date'
+      label: 'end date',
+      default: new Date('12/31/2023').toISOString()
     }
   ]
 
@@ -79,7 +81,7 @@ function Filter() {
             } else if (filter.type === 'datePicker') {
               return (
                 <div key={index} className='col'>
-                  <DatePicker key={index} label={filter.label} model={filter.model}></DatePicker>
+                  <DatePicker key={index} label={filter.label} model={filter.model} default={filter.default}></DatePicker>
                 </div>
               )
             }

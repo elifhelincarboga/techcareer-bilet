@@ -15,7 +15,7 @@ function DatePicker(props) {
 
   const setDefault = () => {
     // Get the current date in the format 'YYYY-MM-DD'
-    const currentDate = new Date().toISOString().split('T')[0]
+    const currentDate = props.default.split('T')[0]
     setDate(currentDate)
     dispatch(setFilter([props.model, currentDate]))
   }
@@ -38,6 +38,7 @@ DatePicker.propTypes = {
   label: PropTypes.string.isRequired,
   customClass: PropTypes.string,
   model: PropTypes.string.isRequired,
+  default: PropTypes.string.isRequired
 }
 
 export default DatePicker
