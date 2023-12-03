@@ -7,9 +7,10 @@ function Home() {
 
   return (
     <>
-      <div>Home</div>
-      <Filter></Filter>
-      <Events data={events}></Events>
+      <div className='container'>
+        <Filter></Filter>
+        <Events data={events}></Events>
+      </div>
     </>
   )
 }

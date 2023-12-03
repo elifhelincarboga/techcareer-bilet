@@ -21,18 +21,25 @@ exports.getFilteredEvents = async (req, res) => {
   try {
     await eventFilterSchema.validate(req.body, { abortEarly: false })
 
-    const query = {
-      date: {},
-      ...(req.body.startDate && req.body.endDate
-        ? {
-            date: {
-              $gte: new Date(req.body.startDate),
-              $lt: new Date(req.body.endDate),
-            },
-          }
-        : {}),
-      ...(req.body.category ? { category: req.body.category } : {}),
-      ...(req.body.city ? { cityId: parseInt(req.body.city) } : {}),
+    const query = {};
+
+    if (req.body.startDate && req.body.endDate) {
+      query.date = {
+        $gte: new Date(req.body.startDate),
+        $lt: new Date(req.body.endDate),
+      };
+    }
+
+    if (req.body.category) {
+      query.category = req.body.category;
+    }
+
+    if (req.body.city) {
+      query.cityId = parseInt(req.body.city);
+    }
+
+    if (req.body.location) {
+      query.location = req.body.location;
     }
 
     const events = await Event.find(query).populate('category').populate('location')

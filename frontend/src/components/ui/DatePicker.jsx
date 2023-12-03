@@ -22,7 +22,7 @@ function DatePicker(props) {
 
   useEffect(() => {
     setDefault()
-	}, []);
+	}, [])
 
   return (
     <>

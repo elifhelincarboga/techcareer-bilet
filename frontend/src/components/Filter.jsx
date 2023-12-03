@@ -4,7 +4,8 @@ import CitiesData from '../data/cities'
 import { useDispatch, useSelector } from 'react-redux'
 import { setEvents } from '../store/modules/event'
 import Api from '../store/api/axios-auth'
-import * as Yup from 'yup';
+import * as Yup from 'yup'
+import { setLoading } from '../store/modules/loading'
 
 function Filter() {
   const filterOptions = [
@@ -50,13 +51,17 @@ function Filter() {
   const handleFilterClick = () => {
     filterValidationSchema.validate(filters)
       .then(validData => {
+        dispatch(setLoading(true))
         Api().post('/events/filter', {...validData}).then(response => {
           dispatch(setEvents(response.data))
+          dispatch(setLoading(false))
         }).catch(error => {
           console.error('Error fetching data:', error)
-        })    })
+          dispatch(setLoading(false))
+        })    
+      })
       .catch(validationError => {
-        console.error('Validation error:', validationError.errors);
+        console.error('Validation error:', validationError.errors)
       })
   }
 

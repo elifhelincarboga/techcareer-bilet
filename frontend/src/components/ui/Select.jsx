@@ -5,7 +5,7 @@ import { setFilter } from '../../store/modules/filter'
 import PropTypes from 'prop-types'
 
 function Select(props) {
-  const [optionList, setOptionList] = useState([]);
+  const [optionList, setOptionList] = useState([])
   const [selectedOption, setSelectedOption] = useState('')
 
   const dispatch = useDispatch()
@@ -23,10 +23,10 @@ function Select(props) {
       Api().get(props.url).then(response => {
         setOptionList(response.data)
       }).catch(error => {
-        console.error('Error fetching data:', error);
+        console.error('Error fetching data:', error)
       })  
     }
-	}, []);
+	}, [])
 
   const handleChange = (event) => {
     setSelectedOption(event.target.value)

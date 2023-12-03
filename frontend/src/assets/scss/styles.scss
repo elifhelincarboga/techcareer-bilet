@@ -1,3 +1,11 @@
 // Import all of Bootstrap's CSS
-@import "bootstrap/scss/bootstrap";
-@import "filter";
+@use "bootstrap/scss/bootstrap";
+@use "filter";
+@use "ticket";
+@use "organizer";
+@use "slider";
+@use "loading";
+
+a {
+  text-decoration: none;
+}
