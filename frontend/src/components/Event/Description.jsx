@@ -4,7 +4,7 @@ function Description(props) {
   return (
     <div className='description'>
       <h2>{props.title}</h2>
-      <div>
+      <div className='media-links'>
         {
           props.socialMediaLinks.map((item, index) => {
             if (item.name === 'facebook') {
