@@ -27,10 +27,6 @@ function EventDetail() {
     })
   }, [])
 
-  const options = {
-    caption: false
-  }
-
   const defaultImageList = [
     {
       url: defaultImage
@@ -43,7 +39,7 @@ function EventDetail() {
         data ? (
           <div className="row">
             <div className="col-12">
-              <Slider data={data.images.length > 0 ? data.images : defaultImageList } options={options}></Slider>
+              <Slider data={data.images.length > 0 ? data.images : defaultImageList}></Slider>
             </div>
             <div className='col-12'>
               <div className='row'>

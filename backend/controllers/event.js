@@ -42,6 +42,12 @@ exports.getFilteredEvents = async (req, res) => {
       query.location = req.body.location;
     }
 
+    if (req.query.isPopular === 'true') {
+      query.isPopular = true;
+    } else if (req.query.isPopular === 'false') {
+      query.isPopular = false;
+    }
+
     const events = await Event.find(query).populate('category').populate('location')
     const eventsMapped = events.map(item => {
       return {
@@ -50,7 +56,8 @@ exports.getFilteredEvents = async (req, res) => {
         date: item.date,
         locationName: item.location.name,
         profileImage: item.images[0]?.url,
-        minPrice: Math.min(...item.seatingCategories.map(item => item.price))
+        minPrice: Math.min(...item.seatingCategories.map(item => item.price)),
+        isPopular: item.isPopular
       }
     })
     res.status(200).json(eventsMapped)

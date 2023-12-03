@@ -38,10 +38,10 @@ function Slider(props) {
       >
         <img src={item.url} alt={item.altText ?? `Slide ${index + 1}`} />
         {
-          props.options.caption ? (
+          (item.caption && item.captionHeader) ? (
             <CarouselCaption
-              captionText={item.caption ?? `Slide ${index + 1}`}
-              captionHeader={item.caption ?? `Slide ${index + 1}`}
+              captionText={item.caption}
+              captionHeader={item.captionHeader}
           />
           ) : (
             <></>
@@ -80,8 +80,7 @@ function Slider(props) {
 }
 
 Slider.propTypes = {
-  data: PropTypes.array,
-  options: PropTypes.object
+  data: PropTypes.array
 }
 
 export default Slider

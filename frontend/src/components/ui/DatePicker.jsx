@@ -14,10 +14,8 @@ function DatePicker(props) {
   }
 
   const setDefault = () => {
-    // Get the current date in the format 'YYYY-MM-DD'
-    const currentDate = props.default.split('T')[0]
-    setDate(currentDate)
-    dispatch(setFilter([props.model, currentDate]))
+    setDate(props.default)
+    dispatch(setFilter([props.model, props.default]))
   }
 
   useEffect(() => {

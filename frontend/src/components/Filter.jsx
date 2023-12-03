@@ -6,6 +6,7 @@ import { setEvents } from '../store/modules/event'
 import Api from '../store/api/axios-auth'
 import * as Yup from 'yup'
 import { setLoading } from '../store/modules/loading'
+import { useEffect } from 'react'
 
 function Filter() {
   const filterOptions = [
@@ -14,33 +15,34 @@ function Filter() {
       url: '/categories',
       label: 'category',
       customClass: '',
-      model: 'category'
+      model: 'category',
+      default: ''
     },
     {
       type: 'singleSelect',
       label: 'city',
       customClass: '',
       model: 'city',
-      data: CitiesData
+      data: CitiesData,
+      default: ''
     },
     {
       type: 'datePicker',
       model: 'startDate',
       label: 'start date',
-      default: new Date().toISOString()
+      default: new Date().toISOString().split('T')[0]
     },
     {
       type: 'datePicker',
       model: 'endDate',
       label: 'end date',
-      default: new Date('12/31/2023').toISOString()
+      default: new Date('12/31/2023').toISOString().split('T')[0]
     }
   ]
 
   const filterValidationSchema = Yup.object().shape({
-    startDate: Yup.date().required('Start date is required'),
+    startDate: Yup.date(),
     endDate: Yup.date()
-      .required('End date is required')
       .min(Yup.ref('startDate'), 'End date must be after or equal to start date'),
     category: Yup.string().nullable(),
     city: Yup.string().nullable(),
@@ -67,6 +69,10 @@ function Filter() {
       })
   }
 
+  useEffect(() => {
+    handleFilterClick()
+  }, [filters])
+
   return (
     <>
       <div className='row'>
@@ -75,7 +81,7 @@ function Filter() {
             if (filter.type === 'singleSelect') {
               return (
                 <div key={index} className='col'>
-                  <Select key={index} url={filter.url} label={filter.label} customClass={filter.customClass} model={filter.model} data={filter.data}></Select>
+                  <Select key={index} url={filter.url} label={filter.label} customClass={filter.customClass} model={filter.model} data={filter.data} default={filter.default}></Select>
                 </div>
               )
             } else if (filter.type === 'datePicker') {

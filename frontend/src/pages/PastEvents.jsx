@@ -1,6 +1,7 @@
 import Api from '../store/api/axios-auth'
 import { useDispatch, useSelector } from 'react-redux'
 import { setEvents } from '../store/modules/event'
+import { setLoading } from '../store/modules/loading'
 import { useEffect } from 'react'
 import Events from '../components/Events'
 
@@ -14,10 +15,13 @@ function PastEvents() {
   }
 
   useEffect(() => {
+    dispatch(setLoading(false))
     Api().post('/events/filter', { ...filter }).then(response => {
       dispatch(setEvents(response.data))
+      dispatch(setLoading(false))
     }).catch(error => {
       console.error('Error fetching data:', error)
+      dispatch(setLoading(false))
     }) 
   }, [])
 

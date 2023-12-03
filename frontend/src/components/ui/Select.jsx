@@ -11,8 +11,8 @@ function Select(props) {
   const dispatch = useDispatch()
 
   const setDefault = () => {
-    setSelectedOption('')
-    dispatch(setFilter([props.model, '']))
+    setSelectedOption(props.default)
+    dispatch(setFilter([props.model, props.default]))
   }
 
   useEffect(() => {
@@ -53,7 +53,8 @@ Select.propTypes = {
   label: PropTypes.string.isRequired,
   customClass: PropTypes.string,
   model: PropTypes.string.isRequired,
-  data: PropTypes.array
+  data: PropTypes.array,
+  default: PropTypes.string.isRequired
 }
 
 export default Select
