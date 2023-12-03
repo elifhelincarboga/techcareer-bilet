@@ -44,7 +44,7 @@ function EventDetail() {
             <div className='col-12'>
               <div className='row'>
                 <div className="col-12">
-                  <Description title={data.title} description={data.description}></Description>
+                  <Description title={data.title} description={data.description} socialMediaLinks={data.socialMediaLinks}></Description>
                 </div>
                 <div className="col-sm-6">
                   <Ticket date={data.date} locationName={data.location.name} seatingCategories={data.seatingCategories}></Ticket>
