@@ -41,18 +41,18 @@ function EventDetail() {
             <div className="col-12">
               <Slider data={data.images.length > 0 ? data.images : defaultImageList}></Slider>
             </div>
-            <div className='col-12'>
+            <div className='col-12 mt-5'>
               <div className='row'>
-                <div className="col-12">
+                <div className="col-12 mb-5">
                   <Description title={data.title} description={data.description} socialMediaLinks={data.socialMediaLinks}></Description>
                 </div>
-                <div className="col-sm-6">
+                <div className="col-sm-6 mb-5">
                   <Ticket date={data.date} locationName={data.location.name} seatingCategories={data.seatingCategories}></Ticket>
                 </div>
-                <div className="col-sm-6">
+                <div className="col-sm-6 mb-5">
                   <Organizer data={data.organizer}></Organizer>
                 </div>
-                <div className="col-12">
+                <div className="col-12 mb-5">
                   <Location data={data.location}></Location>
                 </div>
               </div>

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 function Events(props) {
   return (
     <>
-      <div className='row mt-5'>
+      <div className='row'>
         {
           props.data.map((event, index) => {
             return (

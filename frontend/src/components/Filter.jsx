@@ -75,7 +75,7 @@ function Filter() {
 
   return (
     <>
-      <div className='row'>
+      <div className='row mb-5 d-flex align-items-center'>
         {
           filterOptions.map((filter, index) => {
             if (filter.type === 'singleSelect') {
@@ -94,7 +94,7 @@ function Filter() {
           })
         }
         <div className='col-1'>
-          <button type="button" className="btn btn-primary btn-lg" onClick={handleFilterClick}>Filter</button>
+          <button type="button" className="btn btn-lg btn-primary" onClick={handleFilterClick}>Filter</button>
         </div>
       </div>
     </>

@@ -25,7 +25,7 @@ function DatePicker(props) {
   return (
     <>
       <div className='form-floating'>
-        <input type="date" className="form-control" value={date} onChange={handleChange} />
+        <input type="date" className="form-control border-primary" value={date} onChange={handleChange} />
         <label htmlFor={props.model}>{props.label}</label>
       </div>
     </>

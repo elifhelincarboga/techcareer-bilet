@@ -10,7 +10,7 @@ function Ticket(props) {
   }
 
   return (
-    <div className='ticket'>
+    <div className='ticket me-5'>
       <h2>Bilet Satın Alınız</h2>
       {
         props.seatingCategories.map((seating, index) => {

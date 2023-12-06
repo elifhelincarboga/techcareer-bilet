@@ -7,7 +7,81 @@
 @use "slider";
 @use "loading";
 @use "description";
+@use "variables";
+@use "location";
 
 a {
   text-decoration: none;
+}
+.bg-body-tertiary {
+  background-color: rgb(229, 209, 218, 0.2) !important;
+}
+#navItem {
+  color: rgb(208, 75, 137) !important;
+  font-weight: bold;
+  font-size: large;
+}
+.card {
+  .list-group-item {
+    border:none;
+    background-color:rgb(246, 231, 238);
+    color: variables.$primary-color;
+    opacity: 0.6;
+  }
+}
+.card {
+  border-color:variables.$primary-color;
+}
+.card {
+  .card-body {
+    color: variables.$primary-color;
+    text-align: center;
+    .card-title {
+      font-weight: bold;
+    }
+  }
+}
+.search-wrapper {
+  width: 500px;
+  height: 50px;
+  display: flex;
+  position: relative;
+  .form-control {
+    border-color: variables.$primary-color;
+  }
+  #searchButton {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    border-radius: 50%;
+    border: 0;
+    width: 35px;
+    height: 35px;
+    outline: 0;
+    color: variables.$primary-color;
+    border-color: variables.$primary-color
+  }
+  #searchButton:hover {
+    color: rgb(153, 2, 72);
+  }
+}
+.btn-primary {
+  background-color: rgb(246, 231, 238);
+  color: variables.$primary-color;
+  border-color: variables.$primary-color;
+  height: 48px;
+  &:hover {
+    color: rgb(246, 231, 238);
+    background-color: variables.$primary-color;
+    border-color: variables.$primary-color;
+  }
+}
+.border-primary {
+  border-color: variables.$primary-color !important;
+  opacity: 0.9;
+}
+#footer {
+  background-color: rgb(246, 231, 238);
+  padding: 10px;
+  opacity: 0.7;
 }

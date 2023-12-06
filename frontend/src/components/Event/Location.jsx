@@ -25,11 +25,11 @@ function Location(props) {
 
   return (
     <div className='location'>
-      <h2>{props.data.name}</h2>
-      <div>{props.data.address}</div>
+      <h2 className='mb-3'>{props.data.name}</h2>
+      <div className='mb-3'>{props.data.address}</div>
       <Map coordinates={props.data.coordinates} customStyle={mapCustomStyle}></Map>
-      <div>
-        <div>Sahnedeki Diğer Etkinlikler</div>
+      <div className='other-events mt-5 text-center'>
+        <h3>Sahnedeki Diğer Etkinlikler</h3>
         <Events data={events}></Events>
       </div>
     </div>
