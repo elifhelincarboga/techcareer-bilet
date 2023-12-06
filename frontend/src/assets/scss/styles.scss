@@ -85,3 +85,19 @@ a {
   padding: 10px;
   opacity: 0.7;
 }
+
+
+#login {
+  background-color:rgb(246, 231, 238, 0.3);
+  color: variables.$primary-color;
+  width: 40%;
+  border-radius: 10%;
+}
+#signupItem {
+  span {
+    opacity: 0.8;
+    a {
+      color: rgb(153, 2, 72);
+    }
+  }
+}
