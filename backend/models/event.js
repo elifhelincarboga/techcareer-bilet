@@ -31,7 +31,8 @@ const eventFilterSchema = Yup.object().shape({
     .min(Yup.ref('startDate'), 'End date must be after or equal to start date'),
   category: Yup.string().nullable(),
   city: Yup.string().nullable(),
-  location: Yup.string().nullable()
+  location: Yup.string().nullable(),
+  keyword: Yup.string().nullable()
 });
 
 eventSchema.index({ 'location.coordinates': '2dsphere' })

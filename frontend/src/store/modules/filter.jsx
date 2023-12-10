@@ -1,7 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  filters: {}
+  filters: {
+    city: '',
+    category: '',
+    startDate: new Date().toISOString().split('T')[0],
+    endDate: new Date('12/31/2023').toISOString().split('T')[0]
+  }
 }
 
 export const filterSlice = createSlice({

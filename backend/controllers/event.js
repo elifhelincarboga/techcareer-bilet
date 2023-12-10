@@ -48,6 +48,14 @@ exports.getFilteredEvents = async (req, res) => {
       query.isPopular = false;
     }
 
+    if (req.body.keyword) {
+      const keywordRegex = new RegExp(req.body.keyword, 'i');
+      query.$or = [
+        { title: { $regex: keywordRegex } },
+        { organizer: { $regex: keywordRegex } },
+      ];
+    }
+
     const events = await Event.find(query).populate('category').populate('location')
     const eventsMapped = events.map(item => {
       return {

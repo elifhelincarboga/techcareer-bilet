@@ -6,7 +6,7 @@ import { setEvents } from '../store/modules/event'
 import Api from '../store/api/axios-auth'
 import * as Yup from 'yup'
 import { setLoading } from '../store/modules/loading'
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 
 function Filter() {
   const filterOptions = [
@@ -40,6 +40,8 @@ function Filter() {
     }
   ]
 
+  const isFirst = useRef(true)
+
   const filterValidationSchema = Yup.object().shape({
     startDate: Yup.date(),
     endDate: Yup.date()
@@ -50,7 +52,6 @@ function Filter() {
 
   const dispatch = useDispatch()
   const filters = useSelector((state) => state.filter.filters)
-
 
   const handleFilterClick = () => {
     filterValidationSchema.validate(filters)
@@ -70,7 +71,10 @@ function Filter() {
   }
 
   useEffect(() => {
-    handleFilterClick()
+    if (isFirst.current) {
+      handleFilterClick()
+      isFirst.current = false
+    }
   }, [filters])
 
   return (

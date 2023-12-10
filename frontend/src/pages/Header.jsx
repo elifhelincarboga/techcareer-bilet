@@ -12,6 +12,8 @@ function Header() {
 
   const token = useSelector((state) => state.auth.accessToken)
 
+  const filters = useSelector((state) => state.filter.filters)
+
   const logoutHandler = () => {
     dispatch(removeAccessToken())
     navigate("/")
@@ -19,7 +21,7 @@ function Header() {
 
   const clickHandler = (event) => {
     dispatch(setLoading(true))
-    Api().post('/events/filter', { keyword: event}).then(response => {
+    Api().post('/events/filter', { keyword: event, ...filters}).then(response => {
       dispatch(setEvents(response.data))
       dispatch(setLoading(false))
     }).catch(error => {
