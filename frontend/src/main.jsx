@@ -9,11 +9,17 @@ import { Provider } from 'react-redux'
 import { store } from './store'
 //
 import LoadingOverlay from './components/ui/LoadingOverlay'
+//
+import { persistStore } from 'redux-persist'
+import { PersistGate } from 'redux-persist/integration/react'
 
+let persistor = persistStore(store)
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider store={store}>
-    <RouterProvider router={router} />
-    <LoadingOverlay />
+    <PersistGate loading={null} persistor={persistor}>
+      <RouterProvider router={router} />
+      <LoadingOverlay />
+    </PersistGate>
   </Provider>
 )
