@@ -3,7 +3,13 @@ const Location = require('../models/location')
 exports.getAllLocations = async (req, res) => {
   try {
     const locations = await Location.find()
-    res.status(200).json(locations)
+    const locationsMapped = locations.map(item => {
+      return {
+        id: item._id,
+        name: item.name,
+      }
+    })
+    res.status(200).json(locationsMapped)
   } catch (error) {
     res.status(500).json({ error: 'Internal Server Error'})
   }
@@ -31,7 +37,7 @@ exports.addLocation = async (req, res) => {
     await newLocation.save()
     
     res.status(201).json({ success: true, message: 'Mekan başarıyla eklendi', location: newLocation})
-  } catch {
+  } catch (error) {
     res.status(500).json({ error: 'Internal Server Error'})
   }
 }

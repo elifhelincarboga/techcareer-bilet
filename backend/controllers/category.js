@@ -43,7 +43,7 @@ exports.addCategory = async (req, res) => {
     await newCategory.save()
     
     res.status(201).json({ success: true, message: 'Kategori başarıyla eklendi', category: newCategory})
-  } catch {
+  } catch (error) {
     res.status(500).json({ error: 'Internal Server Error'})
   }
 }
