@@ -5,6 +5,7 @@ import Api from '../../store/api/axios-auth'
 import cities from '../../data/cities'
 import { useDispatch, useSelector } from 'react-redux'
 import { setLoading } from '../../store/modules/loading'
+import toastr from "toastr"
 
 const getCurrentDateTime = () => {
   const now = new Date();
@@ -75,8 +76,9 @@ const Event = () => {
     validationSchema.validate(values)
       .then(validData => {
         dispatch(setLoading(true))
-        Api({}, token).post('/events/add', { ...validData }).then(() => {
+        Api({}, token).post('/events/add', { ...validData }).then(response => {
           dispatch(setLoading(false))
+          toastr.success(response?.data?.message, "İşlem Başarılı!")
         }).catch(error => {
           console.error('Error fetching data:', error)
           dispatch(setLoading(false))

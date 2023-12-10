@@ -3,6 +3,7 @@ import * as Yup from 'yup'
 import Api from '../../store/api/axios-auth'
 import { useDispatch, useSelector } from 'react-redux'
 import { setLoading } from '../../store/modules/loading'
+import toastr from "toastr"
 
 const initialValues = {
   name: '',
@@ -23,8 +24,9 @@ function Category() {
     validationSchema.validate(values)
       .then(validData => {
         dispatch(setLoading(true))
-        Api({}, token).post('/categories/add', { ...validData }).then(() => {
+        Api({}, token).post('/categories/add', { ...validData }).then(response => {
           dispatch(setLoading(false))
+          toastr.success(response?.data?.message, "İşlem Başarılı!")
         }).catch(error => {
           console.error('Error fetching data:', error)
           dispatch(setLoading(false))

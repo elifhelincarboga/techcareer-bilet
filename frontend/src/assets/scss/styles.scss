@@ -9,6 +9,7 @@
 @use "description";
 @use "variables";
 @use "location";
+@import 'toastr';
 
 a {
   text-decoration: none;

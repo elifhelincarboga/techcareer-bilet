@@ -4,6 +4,7 @@ import * as Yup from 'yup'
 import Api from '../../store/api/axios-auth'
 import { useDispatch, useSelector } from 'react-redux'
 import { setLoading } from '../../store/modules/loading'
+import toastr from "toastr"
 
 const initialValues = {
   name: '',
@@ -35,8 +36,9 @@ const Location = () => {
           }
         }
         dispatch(setLoading(true))
-        Api({}, token).post('/locations/add', { ...mappedData }).then(() => {
+        Api({}, token).post('/locations/add', { ...mappedData }).then(response => {
           dispatch(setLoading(false))
+          toastr.success(response?.data?.message, "İşlem Başarılı!")
         }).catch(error => {
           console.error('Error fetching data:', error)
           dispatch(setLoading(false))
