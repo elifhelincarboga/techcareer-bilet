@@ -1,11 +1,20 @@
 import PropTypes from 'prop-types'
 import moment from 'moment'
+import { useDispatch } from 'react-redux'
+import { setModal } from '../../store/modules/modal'
+
 import 'moment/locale/tr'
 
 function Card(props) {
+  const dispatch = useDispatch()
 
   const formatDate = (dateStr) => {
     return moment(dateStr).format('llll')
+  }
+
+  const handleShareClick = (e) => {
+    e.preventDefault()
+    dispatch(setModal({status: true, modalName: 'shareModalShow'}))
   }
 
   return (
@@ -32,9 +41,11 @@ function Card(props) {
         </ul>
         <div className="card-body d-flex justify-content-between">
           <h4>{props.data.minPrice}<small>,00</small> TL</h4>
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" className="bi bi-basket2-fill" viewBox="0 0 16 16">
-            <path d="M5.929 1.757a.5.5 0 1 0-.858-.514L2.217 6H.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h.623l1.844 6.456A.75.75 0 0 0 3.69 15h8.622a.75.75 0 0 0 .722-.544L14.877 8h.623a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1.717L10.93 1.243a.5.5 0 1 0-.858.514L12.617 6H3.383L5.93 1.757zM4 10a1 1 0 0 1 2 0v2a1 1 0 1 1-2 0zm3 0a1 1 0 0 1 2 0v2a1 1 0 1 1-2 0zm4-1a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1"/>
-          </svg>
+          <div onClick={handleShareClick}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-share" viewBox="0 0 16 16">
+              <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5m-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3"/>
+            </svg>
+          </div>
         </div>
       </div>
     </>

@@ -4,6 +4,7 @@ import placeReducer from './modules/place'
 import filterReducer from './modules/filter'
 import loadingReducer from './modules/loading'
 import authReducer from './modules/auth'
+import modalReducer from './modules/modal'
 
 import storage from "redux-persist/lib/storage"
 import { persistReducer } from "redux-persist"
@@ -14,7 +15,7 @@ const persistConfig = {
   version: 1,
   storage,
   whitelist: ['auth'],
-  blacklist: ['event', 'place', 'filter', 'loading']
+  blacklist: ['event', 'place', 'filter', 'loading', 'modal']
 }
 
 const reducer = combineReducers({
@@ -22,7 +23,8 @@ const reducer = combineReducers({
   place: placeReducer,
   filter: filterReducer,
   loading: loadingReducer,
-  auth: authReducer
+  auth: authReducer,
+  modal: modalReducer
 })
 
 const persistedReducer = persistReducer(persistConfig, reducer);
