@@ -17,12 +17,28 @@ function Card(props) {
     dispatch(setModal({status: true, modalName: 'shareModalShow'}))
   }
 
+  const isPast = () => {
+    const currentDateTime = new Date()
+    const date = new Date(props.data.date)
+    
+    return currentDateTime > date
+  }
+
   return (
     <>
-      <div className="card mt-5">
+      <div className={`card m-2 ${isPast() ? 'filter' : ''}`}>
         <img src={props.data.profileImage} className="card-img-top" alt="..." />
         <div className="card-body">
           <h5 className="card-title">{props.data.title}</h5>
+          {
+            isPast() ? (
+              <div className='pastEvents'>
+                <i>Bu etkinlik sona erdi</i>
+              </div>
+            ) : (
+              <></>
+            )
+          }
         </div>
         <ul className="list-group list-group-flush">
           <li className="list-group-item d-flex align-items-center">

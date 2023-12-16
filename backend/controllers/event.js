@@ -56,7 +56,7 @@ exports.getFilteredEvents = async (req, res) => {
       ];
     }
 
-    const events = await Event.find(query).populate('category').populate('location')
+    const events = await Event.find(query).populate('category').populate('location').sort({ date: 'desc' });
     const eventsMapped = events.map(item => {
       return {
         id: item._id,

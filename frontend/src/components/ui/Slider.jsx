@@ -52,7 +52,7 @@ function Slider(props) {
   })
 
   return (
-    <div className='slider'>
+    <div className='slider mb-5'>
       <Carousel
         activeIndex={activeIndex}
         next={next}
