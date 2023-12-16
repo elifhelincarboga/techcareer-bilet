@@ -37,7 +37,7 @@ function Select(props) {
     <>
       <div className='form-floating'>
         <select className="form-control border-primary" id={props.model} value={selectedOption} onChange={handleChange}>
-          <option value="">{ 'Please Select'}</option>
+          <option value="">{ 'Seçiniz'}</option>
           {optionList && optionList.map((item) => (
             <option key={item.id} value={item.id}>{item.name}</option>
           ))}      

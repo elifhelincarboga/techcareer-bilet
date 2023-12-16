@@ -11,8 +11,8 @@ const initialValues = {
 }
 
 const validationSchema = Yup.object({
-  userName: Yup.string().required('Required'),
-  password: Yup.string().required('Required'),
+  userName: Yup.string().required('Zorunlu Alan'),
+  password: Yup.string().required('Zorunlu Alan'),
 })
 
 const LoginPage = () => {
@@ -33,7 +33,7 @@ const LoginPage = () => {
   return (
     <>
       <div id='login' className="p-5 container mt-5">
-        <h2 className='text-center'>Log In</h2>
+        <h2 className='text-center'>Giriş Yap</h2>
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}
@@ -43,13 +43,13 @@ const LoginPage = () => {
             <div className='row d-flex flex-column align-items-center'>
               <div className="col-md-6 mb-3 mt-5">
                 <label htmlFor="userName" className="form-label">
-                  Username
+                  Kullanıcı Adı
                 </label>
                 <Field
                   type="text"
                   name="userName"
                   id="userName"
-                  placeholder="Enter your username"
+                  placeholder="Kullanıcı adı giriniz"
                   className="form-control"
                 />
                 <ErrorMessage
@@ -60,13 +60,13 @@ const LoginPage = () => {
               </div>
               <div className="col-md-6 mb-5">
                 <label htmlFor="password" className="form-label">
-                  Password
+                  Şifre
                 </label>
                 <Field
                   type="password"
                   name="password"
                   id="password"
-                  placeholder="Enter your password"
+                  placeholder="Şifre giriniz"
                   className="form-control"
                 />
                 <ErrorMessage
@@ -76,14 +76,14 @@ const LoginPage = () => {
                 />
               </div>
               <button type="submit" className="btn btn-primary">
-                Login
+                Giriş
               </button>
             </div>
           </Form>
         </Formik>
       </div>
       <div id='signupItem' className='mt-3 text-center'>
-        <span>Henüz bir üyeliğiniz yoksa import <Link to="/signup">üye olmak için tıklayınız.</Link></span>
+        <span>Henüz bir üyeliğiniz yoksa <Link to="/signup">üye olmak için tıklayınız.</Link></span>
       </div>
     </>
   );

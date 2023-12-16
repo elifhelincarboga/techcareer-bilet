@@ -10,9 +10,9 @@ const initialValues = {
 }
 
 const validationSchema = Yup.object({
-  userName: Yup.string().required('Required'),
-  email: Yup.string().email('Invalid email address').required('Required'),
-  password: Yup.string().required('Required'),
+  userName: Yup.string().required('Zorunlu Alan'),
+  email: Yup.string().email('Geçersiz Mail Adresi').required('Zorunlu Alan'),
+  password: Yup.string().required('Zorunlu Alan'),
 })
 
 const SignupPage = () => {
@@ -30,7 +30,7 @@ const SignupPage = () => {
   return (
     <>
       <div id='login' className="p-5 container mt-5">
-        <h2 className='text-center'>Sign Up</h2>
+        <h2 className='text-center'>Üye Ol</h2>
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}
@@ -40,13 +40,13 @@ const SignupPage = () => {
             <div className='row d-flex flex-column align-items-center'>
               <div className="col-md-6 mb-3 mt-5">
                 <label htmlFor="userName" className="form-label">
-                  Username
+                  Kullanıcı Adı
                 </label>
                 <Field
                   type="text"
                   name="userName"
                   id="userName"
-                  placeholder="Enter your username"
+                  placeholder="Kullanıcı adı giriniz"
                   className="form-control"
                 />
                 <ErrorMessage
@@ -57,13 +57,13 @@ const SignupPage = () => {
               </div>
               <div className="col-md-6 mb-3">
                 <label htmlFor="email" className="form-label">
-                  E-mail
+                  E-posta
                 </label>
                 <Field
                   type="text"
                   name="email"
                   id="email"
-                  placeholder="Enter your email"
+                  placeholder="E-Posta giriniz"
                   className="form-control"
                 />
                 <ErrorMessage
@@ -74,13 +74,13 @@ const SignupPage = () => {
               </div>
               <div className="col-md-6 mb-5">
                 <label htmlFor="password" className="form-label">
-                  Password
+                  Şifre
                 </label>
                 <Field
                   type="password"
                   name="password"
                   id="password"
-                  placeholder="Enter your password"
+                  placeholder="Şifre giriniz"
                   className="form-control"
                 />
                 <ErrorMessage
@@ -90,7 +90,7 @@ const SignupPage = () => {
                 />
               </div>
               <button type="submit" className="btn btn-primary">
-                 Sign Up
+                 Üye Ol
               </button>
             </div>
           </Form>

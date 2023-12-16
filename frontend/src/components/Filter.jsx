@@ -13,14 +13,14 @@ function Filter() {
     {
       type: 'singleSelect',
       url: '/categories',
-      label: 'category',
+      label: 'Kategori',
       customClass: '',
       model: 'category',
       default: ''
     },
     {
       type: 'singleSelect',
-      label: 'city',
+      label: 'Şehir',
       customClass: '',
       model: 'city',
       data: CitiesData,
@@ -29,13 +29,13 @@ function Filter() {
     {
       type: 'datePicker',
       model: 'startDate',
-      label: 'start date',
+      label: 'Başlangıç Tarihi',
       default: new Date().toISOString().split('T')[0]
     },
     {
       type: 'datePicker',
       model: 'endDate',
-      label: 'end date',
+      label: 'Bitiş Tarihi',
       default: new Date('12/31/2023').toISOString().split('T')[0]
     }
   ]
@@ -45,7 +45,7 @@ function Filter() {
   const filterValidationSchema = Yup.object().shape({
     startDate: Yup.date(),
     endDate: Yup.date()
-      .min(Yup.ref('startDate'), 'End date must be after or equal to start date'),
+      .min(Yup.ref('startDate'), 'Bitiş tarihi başlangıç tarihinden önce olamaz.'),
     category: Yup.string().nullable(),
     city: Yup.string().nullable(),
   })
@@ -98,7 +98,7 @@ function Filter() {
           })
         }
         <div className='col-1'>
-          <button type="button" className="btn btn-lg btn-primary" onClick={handleFilterClick}>Filter</button>
+          <button type="button" className="btn btn-lg btn-primary" onClick={handleFilterClick}>Bul</button>
         </div>
       </div>
     </>
