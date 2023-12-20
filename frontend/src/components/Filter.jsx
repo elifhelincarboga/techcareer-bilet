@@ -79,25 +79,25 @@ function Filter() {
 
   return (
     <>
-      <div className='row mb-5 d-flex align-items-center'>
+      <div className='row mb-5 d-flex align-items-center justify-content-end'>
         {
           filterOptions.map((filter, index) => {
             if (filter.type === 'singleSelect') {
               return (
-                <div key={index} className='col'>
+                <div key={index} className='col-lg-2 col-md-6 mb-3'>
                   <Select key={index} url={filter.url} label={filter.label} customClass={filter.customClass} model={filter.model} data={filter.data} default={filter.default}></Select>
                 </div>
               )
             } else if (filter.type === 'datePicker') {
               return (
-                <div key={index} className='col'>
+                <div key={index} className='col-lg-3 col-md-6 mb-3'>
                   <DatePicker key={index} label={filter.label} model={filter.model} default={filter.default}></DatePicker>
                 </div>
               )
             }
           })
         }
-        <div className='col-1'>
+        <div className='col-lg-1 col-md-2 col-sm-3 mb-3 text-end'>
           <button type="button" className="btn btn-lg btn-primary" onClick={handleFilterClick}>Bul</button>
         </div>
       </div>

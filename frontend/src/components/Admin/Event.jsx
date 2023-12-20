@@ -213,8 +213,8 @@ const Event = () => {
                 </Field>
                 <ErrorMessage name="location" component="div" className="text-danger" />
               </div>
-              <div className="mb-3">
-                <label htmlFor="isPopular" className="form-label">
+              <div className="mb-3 d-flex align-content-center align-items-center">
+                <label htmlFor="isPopular" className="form-label me-2 mb-1">
                   Popüler
                 </label>
                 <Field
@@ -255,12 +255,12 @@ const Event = () => {
                             component="div"
                             className="text-danger"
                           />
-                          <button type="button" onClick={() => remove(index)}>
+                          <button type="button" className='btn-admin' onClick={() => remove(index)}>
                             Kaldır
                           </button>
                         </div>
                       ))}
-                      <button type="button" onClick={() => push({ name: '', price: '' })}>
+                      <button type="button" className='btn-admin mt-2' onClick={() => push({ name: '', price: '' })}>
                         Ekle
                       </button>
                     </div>
@@ -298,12 +298,12 @@ const Event = () => {
                             component="div"
                             className="text-danger"
                           />
-                          <button type="button" onClick={() => remove(index)}>
+                          <button type="button" className='btn-admin' onClick={() => remove(index)}>
                             Kaldır
                           </button>
                         </div>
                       ))}
-                      <button type="button" onClick={() => push({ name: '', url: '' })}>
+                      <button type="button" className='btn-admin mt-2' onClick={() => push({ name: '', url: '' })}>
                         Ekle
                       </button>
                     </div>
@@ -330,12 +330,12 @@ const Event = () => {
                             component="div"
                             className="text-danger"
                           />
-                          <button type="button" onClick={() => remove(index)}>
+                          <button type="button" className='btn-admin' onClick={() => remove(index)}>
                             Kaldır
                           </button>
                         </div>
                       ))}
-                      <button type="button" onClick={() => push('')}>
+                      <button type="button" className='btn-admin mt-2' onClick={() => push('')}>
                         Ekle
                       </button>
                     </div>
@@ -362,12 +362,12 @@ const Event = () => {
                             component="div"
                             className="text-danger"
                           />
-                          <button type="button" onClick={() => remove(index)}>
+                          <button type="button" className='btn-admin' onClick={() => remove(index)}>
                             Kaldır
                           </button>
                         </div>
                       ))}
-                      <button type="button" onClick={() => push({ url: '' })}>
+                      <button type="button" className='btn-admin mt-2' onClick={() => push({ url: '' })}>
                         Ekle
                       </button>
                     </div>

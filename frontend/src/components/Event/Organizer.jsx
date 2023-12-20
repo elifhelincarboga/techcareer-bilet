@@ -3,7 +3,7 @@ import unknownImage from '../../assets/images/unknown.png'
 
 function Organizer(props) {
   return (
-    <div className='organizer ms-5'>
+    <div className='organizer'>
       <h2 className='mb-3'>Sanatçılar</h2>
       {
         props.data.map((organizer, index) => {

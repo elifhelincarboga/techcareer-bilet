@@ -8,7 +8,7 @@ function Events(props) {
         {
           props.data.map((event, index) => {
             return (
-              <div key={index} className='col-3 mb-4'>
+              <div key={index} className='col-lg-3 col-md-6 col-12 mb-4'>
                 <Link to={`/event/${event.id}`}>
                   <Card data={event}></Card>
                 </Link>

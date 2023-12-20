@@ -32,7 +32,7 @@ const LoginPage = () => {
 
   return (
     <>
-      <div id='login' className="p-5 container mt-5">
+      <div id='login' className="py-5 container mt-5">
         <h2 className='text-center'>Giriş Yap</h2>
         <Formik
           initialValues={initialValues}
@@ -41,7 +41,7 @@ const LoginPage = () => {
         >
           <Form>
             <div className='row d-flex flex-column align-items-center'>
-              <div className="col-md-6 mb-3 mt-5">
+              <div className="col-lg-6 col-md-8 col-10 mb-3 mt-5">
                 <label htmlFor="userName" className="form-label">
                   Kullanıcı Adı
                 </label>
@@ -58,7 +58,7 @@ const LoginPage = () => {
                   className="text-danger"
                 />
               </div>
-              <div className="col-md-6 mb-5">
+              <div className="col-lg-6 col-md-8 col-10 mb-5">
                 <label htmlFor="password" className="form-label">
                   Şifre
                 </label>

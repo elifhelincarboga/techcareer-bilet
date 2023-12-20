@@ -13,6 +13,8 @@ import LoadingOverlay from './components/ui/LoadingOverlay'
 import { persistStore } from 'redux-persist'
 import { PersistGate } from 'redux-persist/integration/react'
 
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+
 let persistor = persistStore(store)
 
 ReactDOM.createRoot(document.getElementById('root')).render(
