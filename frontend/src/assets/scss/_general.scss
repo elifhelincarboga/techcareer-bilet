@@ -146,6 +146,7 @@ a {
   #follow-us{
     color: variables.$primary-color;
     svg {
+      cursor: pointer;
       width: 28px;
       height: 28px;
       margin-right: 24px;

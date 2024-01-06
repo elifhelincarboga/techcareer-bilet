@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useLocation } from 'react-router-dom'
 import Api from '../store/api/axios-auth'
 import Description from '../components/Event/Description'
 import Ticket from '../components/Event/Ticket'
@@ -15,6 +15,7 @@ function EventDetail() {
   const [data, setData] = useState(null)
 
   const dispatch = useDispatch()
+  const location = useLocation();
 
   useEffect(() => {
     dispatch(setLoading(true))
@@ -25,7 +26,7 @@ function EventDetail() {
       dispatch(setLoading(false))
       console.error('Error fetching data:', error)
     })
-  }, [])
+  }, [location.pathname])
 
   const defaultImageList = [
     {
@@ -47,7 +48,7 @@ function EventDetail() {
                   <Description title={data.title} description={data.description} socialMediaLinks={data.socialMediaLinks}></Description>
                 </div>
                 <div className="col-sm-6 mb-5">
-                  <Ticket date={data.date} locationName={data.location.name} seatingCategories={data.seatingCategories}></Ticket>
+                  <Ticket date={data.date} locationName={data.location.name} seatingCategories={data.seatingCategories} isPickable={data.isPickable}></Ticket>
                 </div>
                 <div className="col-sm-6 mb-5">
                   <Organizer data={data.organizer}></Organizer>

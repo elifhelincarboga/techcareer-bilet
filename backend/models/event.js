@@ -21,14 +21,13 @@ const eventSchema = new mongoose.Schema({
   seatingCategories: [{ name: String, price: Number }],
   isPopular: { type: Boolean, default: false },
   socialMediaLinks: [{ name: String, url: String}],
-  organizer: [{ type: String, required: true }]
+  organizer: [{ type: String, required: true }],
+  isPickable: { type: Boolean, default: false }
 })
 
 const eventFilterSchema = Yup.object().shape({
   startDate: Yup.date().nullable(),
-  endDate: Yup.date()
-    .nullable()
-    .min(Yup.ref('startDate'), 'End date must be after or equal to start date'),
+  endDate: Yup.date().nullable(),
   category: Yup.string().nullable(),
   city: Yup.string().nullable(),
   location: Yup.string().nullable(),

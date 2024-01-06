@@ -33,7 +33,7 @@ function Share() {
     <div className={`modal ${isShow ? 'show' : ''}`}>
       <div className="modal-content">
         <span className="close" onClick={onHideHandler}>&times;</span>
-        <h4 className='text-center mb-4'>Share with...</h4>
+        <h4 className='text-center mb-4'>Paylaş...</h4>
         <ul>
           {socialMediaLinks.map((link) => (
             <li key={link.name}>
