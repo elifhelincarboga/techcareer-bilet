@@ -68,21 +68,21 @@ Experience a live preview of the application's features by visiting [here.](http
 ## Getting Started
 
 1. Clone the repository: `git clone https://github.com/elifhelincarboga/techcareer-bilet.git`
-2. Navigate to the project directory: `cd your-project`
+2. Navigate to the project directory
 3. Set up a MongoDB database and update the connection details in the configuration.
 4. Navigate to the backend directory: cd backend
 5. Start the backend server: npm run start
 6. Navigate to the frontend directory: cd frontend
-7. Start the React app: npm start
+7. Start the React app: npm run dev
 
 ## Usage
 
-- Visit http://localhost:5173 in your browser to access the Event Ticketing App.
+- Visit http://localhost:5173 in your browser to access the App.
 - Browse events, view details, and purchase tickets seamlessly.
 
 ## API Documentation
 
-shared on /backend file named collections.json.
+shared in /backend folder named collections.json for testing api on postman.
 
 ## License
 
