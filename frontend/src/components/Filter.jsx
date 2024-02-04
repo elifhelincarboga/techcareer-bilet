@@ -36,7 +36,7 @@ function Filter() {
       type: 'datePicker',
       model: 'endDate',
       label: 'Bitiş Tarihi',
-      default: new Date('12/31/2023').toISOString().split('T')[0]
+      default: new Date('12/31/2024').toISOString().split('T')[0]
     }
   ]
 

@@ -5,7 +5,7 @@ const initialState = {
     city: '',
     category: '',
     startDate: new Date().toISOString().split('T')[0],
-    endDate: new Date('12/31/2023').toISOString().split('T')[0]
+    endDate: new Date('12/31/2024').toISOString().split('T')[0]
   }
 }
 
