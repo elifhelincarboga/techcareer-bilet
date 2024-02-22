@@ -1,5 +1,6 @@
 {
   "name": "frontend",
+  "description": "",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,6 +10,12 @@
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/elifhelincarboga/techcareer-bilet.git"
+  }
   "dependencies": {
     "@popperjs/core": "^2.11.8",
     "@react-google-maps/api": "^2.19.2",
